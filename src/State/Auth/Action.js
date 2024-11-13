@@ -18,7 +18,7 @@ export const register = (userData)=> async(dispatch)=>{
         if(user.jwt){
             localStorage.setItem("jwt", user.jwt)
         }
-        console.log("user",user)
+        // console.log("user",user)
 
         dispatch(registerSuccess(user.jwt))
     } catch (error) {
@@ -40,7 +40,7 @@ export const login = (userData)=> async(dispatch)=>{
         if(user.jwt){
             localStorage.setItem("jwt", user.jwt)
         }
-        console.log("user",user)
+        // console.log("user",user)
 
         dispatch(loginSuccess(user.jwt))
     } catch (error) {
@@ -64,7 +64,7 @@ export const getUser = (jwt)=> async(dispatch)=>{
             }
         })
         const user = response.data;
-        console.log("user",user)
+        // console.log("user",user)
 
         dispatch(getUserSuccess(user))
     } catch (error) {

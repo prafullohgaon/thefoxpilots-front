@@ -53,7 +53,7 @@ const CreateProductForm = () => {
   const handleSubmit=(e)=>{
     e.preventDefault();
     dispatch(createProduct(productData))
-    console.log(productData);
+    // console.log(productData);
   }
   return (
     <div className='p-10'>

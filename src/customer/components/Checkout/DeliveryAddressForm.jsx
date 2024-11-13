@@ -1,12 +1,14 @@
 import React from "react";
 import { Grid2, Grid, Button, Box, TextField } from "@mui/material";
 import AddressCard from "../AddressCard/AddressCard";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createOrder } from "../../../State/Order/Action";
 import { useNavigate } from "react-router-dom";
 const DeliveryAddressForm = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate();
+  const {auth} = useSelector(store=>store)
+  // console.log("auth", auth.user)
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,7 +27,7 @@ const DeliveryAddressForm = () => {
     // Pass only the address without any extra properties
     const orderData = {address, navigate}
     dispatch(createOrder({ address, navigate }));
-    console.log("Submitting address:", orderData);
+    // console.log("Submitting address:", orderData);
 };
 
 
@@ -39,7 +41,7 @@ const DeliveryAddressForm = () => {
           className="border rounded-e-md shadow-md h-[30.5rem] overflow-y-scroll"
         >
           <div className="p-5 py-7 border-b cursor-pointer">
-            <AddressCard />
+            {auth.user?.address?.map((item)=><AddressCard address={item}/>) }
             <Button
               sx={{ mt: 2, bgcolor: "RGB(145 85 253)" }}
               size="large"

@@ -28,7 +28,7 @@ const RegisterForm = () => {
             password: data.get("password")
         }
         dispatch(register(userData))
-        console.log("userData", userData)
+        // console.log("userData", userData)
     }
   return (
     <div>

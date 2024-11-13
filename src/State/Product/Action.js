@@ -35,7 +35,7 @@ export const findProducts = (reqData) => async (dispatch) => {
     const { data } = await api.get(`/api/products?${queryParams}`);
     
 
-    console.log("product data ", data)
+    // console.log("product data ", data)
     dispatch({type:FIND_PRODUCTS_SUCCESS, payload:data})
   }catch (error) {
     console.error("Fetch products error:", error.response?.data || error.message);
@@ -50,7 +50,7 @@ export const findProductsById = (reqData) => async (dispatch) => {
   const {productId} = reqData;
   try {
     const { data } = await api.get(`/api/products/id/${productId}`);
-    console.log("data id is", data)
+    // console.log("data id is", data)
     
     dispatch({type:FIND_PRODUCT_BY_ID_SUCCESS, payload:data})
   } catch (error) {
@@ -63,7 +63,7 @@ export const createProduct=(product)=>async(dispatch)=>{
   try{
     dispatch({type:CREATE_PRODUCT_REQUEST})
     const {data}=await api.post(`${API_BASE_URL}/api/admin/products`,product);
-    console.log("created Products ", data)
+    // console.log("created Products ", data)
     dispatch({
       type:CREATE_PRODUCT_SUCCESS,
       payload:data,
@@ -94,7 +94,7 @@ export const deleteProduct = (productId) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_PRODUCT_REQUEST });
     const { data } = await api.delete(`${API_BASE_URL}/api/admin/products/${productId}`);
-    console.log("delete product ", data);
+    // console.log("delete product ", data);
     dispatch({
       type: DELETE_PRODUCT_SUCCESS,
       payload: productId,

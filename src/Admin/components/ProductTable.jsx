@@ -9,10 +9,10 @@ const ProductTable = () => {
   const dispatch = useDispatch();
   const {products} = useSelector(store=>store);
 
-  console.log("products ---- ", products)
+  // console.log("products ---- ", products)
 
   const handleProductDelete=(productId)=>{
-    console.log("Deleting product with ID: ", productId);
+    // console.log("Deleting product with ID: ", productId);
     dispatch(deleteProduct(productId))
   }
 

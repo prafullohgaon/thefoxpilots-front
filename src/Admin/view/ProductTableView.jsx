@@ -9,7 +9,7 @@ const ProductTableView = () => {
   const dispatch = useDispatch();
   const {products} = useSelector(store=>store);
 
-  console.log("products ---- ", products)
+  // console.log("products ---- ", products)
 
   useEffect(()=>{
     const data = {

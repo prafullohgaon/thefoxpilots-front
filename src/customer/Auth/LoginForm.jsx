@@ -17,7 +17,7 @@ const LoginForm = () => {
             password: data.get("password")
         }
         dispatch(login(userData))
-        console.log("userData", userData)
+        // console.log("userData", userData)
     }
   return (
     <div>

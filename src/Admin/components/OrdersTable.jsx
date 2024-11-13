@@ -38,17 +38,17 @@ const OrdersTable = () => {
 
   const handleShipedOrder = (orderId) => {
     dispatch(shipOrder(orderId));
-    console.log("handle Shiporder Order ", orderId)
+    // console.log("handle Shiporder Order ", orderId)
     handleClose();
   };
   const handleConfirmedOrder = (orderId) => {
     dispatch(confirmOrder(orderId));
-    console.log("handle confirmed Order ", orderId)
+    // console.log("handle confirmed Order ", orderId)
     handleClose();
   };
   const handleDeliveredOrder = (orderId) => {
     dispatch(deliveredOrder(orderId));
-    console.log("handle Delivered Order ", orderId)
+    // console.log("handle Delivered Order ", orderId)
     handleClose();
   };
   const handleDeleteOrder = (orderId) => {

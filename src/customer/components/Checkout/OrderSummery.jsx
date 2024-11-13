@@ -5,6 +5,7 @@ import CartItem from '../Cart/CartItem';
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { getOrderById } from '../../../State/Order/Action';
+import { createPayment } from '../../../State/Payment/Action';
 
 const OrderSummary = () => {
   const location = useLocation();
@@ -12,6 +13,10 @@ const OrderSummary = () => {
   const {order} = useSelector(store=>store)
   const searchParams = new URLSearchParams(location.search);
   const orderId = searchParams.get("order_id");
+
+  const handleCheckout=()=>{
+    dispatch(createPayment(orderId))
+  }
 
   useEffect(() => {
     if (orderId) {
@@ -55,7 +60,7 @@ const OrderSummary = () => {
                   <span className='text-green-600'>₹{order.order?.totalDiscountedPrice}</span>
                 </div>
               </div>
-              <Button variant="contained" className='w-full mt-5' sx={{ px: "2.5rem", py: ".7rem", bgcolor: "#9155fd" }}>
+              <Button onClick={handleCheckout} variant="contained" className='w-full mt-5' sx={{ px: "2.5rem", py: ".7rem", bgcolor: "#9155fd" }}>
                 Checkout
               </Button>
             </div>
