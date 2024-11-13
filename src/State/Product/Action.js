@@ -37,12 +37,19 @@ export const findProducts = (reqData) => async (dispatch) => {
 
     // console.log("product data ", data)
     dispatch({type:FIND_PRODUCTS_SUCCESS, payload:data})
-  }catch (error) {
-    console.error("Fetch products error:", error.response?.data || error.message);
-    dispatch({ type: FIND_PRODUCTS_FAILURE, payload: error.response?.data?.error || error.message });
-    dispatch({type:FIND_PRODUCTS_FAILURE, payload:error.message})
+  }
+//   catch (error) {
+//     console.error("Fetch products error:", error.response?.data || error.message);
+//     dispatch({ type: FIND_PRODUCTS_FAILURE, payload: error.response?.data?.error || error.message });
+//     dispatch({type:FIND_PRODUCTS_FAILURE, payload:error.message})
 
+// }
+  catch (error) {
+    const errorMessage = error.response?.data?.error || error.message;
+    console.error("Fetch products error:", errorMessage);
+    dispatch({ type: FIND_PRODUCTS_FAILURE, payload: errorMessage });
 }
+
 };
 
 export const findProductsById = (reqData) => async (dispatch) => {
