@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export const API_BASE_URL="https://prafullohgaon-api.vercel.app/?vercelToolbarCode=S8usahpyzjI9-2o"
+export const API_BASE_URL="https://prafullohgaon-api.vercel.app"
 
 const jwt = localStorage.getItem("jwt")
 
