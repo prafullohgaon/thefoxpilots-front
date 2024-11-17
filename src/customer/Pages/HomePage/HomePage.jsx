@@ -4,7 +4,7 @@ import HomeSectionCarosel from "../../components/HomeSectionCarosel/HomeSectionC
 import {mens_kurta} from '../../../Data/mens_kurt'
 import styled from "styled-components";
 import HeaderImage from "../../components/utils/Images/Header.png";
-import videoFile from "./video.mp4";
+// import videoFile from "./video.mp4";
 import img1 from "./homeimages/1.jpg"
 import img2 from "./homeimages/2.jpg"
 import img3 from "./homeimages/3.jpg"
@@ -71,7 +71,7 @@ const HomePage = () => {
         </Section>
 
 
-      <div key="video" className="video-item">
+{/*       <div key="video" className="video-item">
       <video
         autoPlay
         loop
@@ -81,7 +81,7 @@ const HomePage = () => {
       >
         Your browser does not support the video tag.
       </video>
-    </div>
+    </div> */}
       <div className="space-y-10 py-20 flex flex-col justify-center px-5 lg:px-10">
         <HomeSectionCarosel data={mens_kurta} sectionName={"Men's Kurta"}/>
         {/* <HomeSectionCarosel data={mens_kurta} sectionName={"Men's Shoes"}/>
