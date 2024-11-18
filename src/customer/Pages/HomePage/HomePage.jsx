@@ -144,7 +144,9 @@ const HomePage = () => {
         <h1 style={{fontWeight:"bolder", fontSize:"30px"}}>Explore the Fashion</h1>
         <p>Discover the latest trends and exclusive collections.</p>
       </ExploreSection>
-
+      <Section>
+          <img src={img1} alt="" />
+        </Section>
       <ProductsSection>
         <h2 style={{ textAlign: "center", marginBottom: "20px", fontWeight:"bold" }}>Our Products 2025 New</h2>
         <ProductsGrid>
@@ -188,8 +190,9 @@ const HomePage = () => {
       </ProductsSection>
 
       <Section>
-          <img src={img1} alt="" />
+          <img src={img10} alt="" />
         </Section>
+     
       <ProductsSection>
         <h2 style={{ textAlign: "center", marginBottom: "20px", fontWeight:"bold" }}>Our Products 2025 New</h2>
         <ProductsGrid>
@@ -232,9 +235,7 @@ const HomePage = () => {
         </ProductsGrid>
       </ProductsSection>
 
-      <Section>
-          <img src={img10} alt="" />
-        </Section>
+   
     </div>
   );
 };
