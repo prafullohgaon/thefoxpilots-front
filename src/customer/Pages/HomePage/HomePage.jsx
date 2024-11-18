@@ -1,29 +1,24 @@
 import React from "react";
 import styled from "styled-components";
-import HeaderImage from "../../components/utils/Images/Header.png";
 import videoFile from "./video.mp4";
 import img1 from "./homeimages/1.jpg"
-import img2 from "./homeimages/2.jpg"
-import img3 from "./homeimages/3.jpg"
-import img4 from "./homeimages/4.jpg"
-import img5 from "./homeimages/5.jpg"
-import img6 from "./homeimages/14.jpg"
-import img7 from "./homeimages/15.jpg"
-import img8 from "./homeimages/16.jpg"
-import img10 from "./homeimages/13.jpg"
-import img11 from "./homeimages/2.jpg"
+import img2 from "./homeimages/9.jpg"
+import img3 from "./homeimages/10.jpg"
+import img4 from "./homeimages/11.jpg"
+import img5 from "./homeimages/12.jpg"
+import img6 from "./homeimages/13.jpg"
+import img7 from "./homeimages/14.jpg"
+import img8 from "./homeimages/15.jpg"
+import img9 from "./homeimages/16.jpg"
+import img10 from "./homeimages/2.jpg"
 
-const Container = styled.div`
-  padding: 20px 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  @media (max-width: 768px) {
-    padding: 20px 12px;
-  }
+// Styled Components
+const HeroSection = styled.section`
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 `;
-
 
 const Section = styled.div`
   max-width: 100%;
@@ -31,13 +26,6 @@ const Section = styled.div`
   display: flex;
   flex-direction: column;
   gap: 28px;
-`;
-
-const HeroSection = styled.section`
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
 `;
 
 const BackgroundVideo = styled.video`
@@ -120,11 +108,16 @@ const ProductLink = styled.a`
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
-  font-weight: bold;
 
   &:hover {
     background: #555;
   }
+`;
+
+const FullWidthImageSection = styled.section`
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
 `;
 
 const FullWidthImage = styled.img`
@@ -132,6 +125,7 @@ const FullWidthImage = styled.img`
   height: auto;
 `;
 
+// Main Component
 const HomePage = () => {
   return (
     <div>
@@ -141,22 +135,22 @@ const HomePage = () => {
           Your browser does not support the video tag.
         </BackgroundVideo>
         <HeroContent>
-          <h2>Louis Vuitton Colourmania</h2>
+          <h1>Louis Vuitton Colourmania</h1>
           <HeroButton href="men/clothing/mens_kurta">Discover the Collection</HeroButton>
         </HeroContent>
       </HeroSection>
 
       <ExploreSection>
-        <h1 style={{fontSize:"28px", fontWeight:"bolder"}}>Explore the Fashion</h1>
+        <h1 style={{fontWeight:"bolder", fontSize:"30px"}}>Explore the Fashion</h1>
         <p>Discover the latest trends and exclusive collections.</p>
       </ExploreSection>
 
       <ProductsSection>
-        <h2 style={{ textAlign: "center", marginBottom: "20px", fontWeight:"bold"}}>Our Products 2025 New</h2>
+        <h2 style={{ textAlign: "center", marginBottom: "20px", fontWeight:"bold" }}>Our Products 2025 New</h2>
         <ProductsGrid>
           <ProductCard>
             <ProductImage
-              src={img4}
+              src={img5}
               alt="Leather Bags"
             />
             <ProductTitle>Leather Bags</ProductTitle>
@@ -165,7 +159,7 @@ const HomePage = () => {
           </ProductCard>
           <ProductCard>
             <ProductImage
-              src={img1}
+              src={img3}
               alt="Stylish Sunglasses"
             />
             <ProductTitle>Stylish Sunglasses</ProductTitle>
@@ -183,7 +177,7 @@ const HomePage = () => {
           </ProductCard>
           <ProductCard>
             <ProductImage
-              src={img3}
+              src={img4}
               alt="Jewelry Collection"
             />
             <ProductTitle>Jewelry Collection</ProductTitle>
@@ -192,8 +186,9 @@ const HomePage = () => {
           </ProductCard>
         </ProductsGrid>
       </ProductsSection>
+
       <Section>
-          <img src={img5} alt="" />
+          <img src={img1} alt="" />
         </Section>
       <ProductsSection>
         <h2 style={{ textAlign: "center", marginBottom: "20px", fontWeight:"bold" }}>Our Products 2025 New</h2>
@@ -227,7 +222,7 @@ const HomePage = () => {
           </ProductCard>
           <ProductCard>
             <ProductImage
-              src={img10}
+              src={img9}
               alt="Jewelry Collection"
             />
             <ProductTitle>Jewelry Collection</ProductTitle>
@@ -236,30 +231,10 @@ const HomePage = () => {
           </ProductCard>
         </ProductsGrid>
       </ProductsSection>
+
       <Section>
-          <img src={img11} alt="" />
+          <img src={img10} alt="" />
         </Section>
-
-
-      <div key="video" className="video-item">
-      <video
-        autoPlay
-        loop
-        muted
-        style={{ width: "100%", border: "none", outline: "none" }}
-        src={videoFile}
-      >
-        Your browser does not support the video tag.
-      </video>
-    </div>
-      <div className="space-y-10 py-20 flex flex-col justify-center px-5 lg:px-10">
-        <HomeSectionCarosel data={mens_kurta} sectionName={"Men's Kurta"}/>
-        {/* <HomeSectionCarosel data={mens_kurta} sectionName={"Men's Shoes"}/>
-        <HomeSectionCarosel data={mens_kurta} sectionName={"Men's Shirt"}/>
-        <HomeSectionCarosel data={mens_kurta} sectionName={"Women's Saree"}/> */}
-        <HomeSectionCarosel data={mens_kurta} sectionName={"Womens's Dress"}/>
-      </div>
-
     </div>
   );
 };
