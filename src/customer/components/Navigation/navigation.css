@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .navbar-left, .navbar-right {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .menu-btn, .search-btn, .call-us-btn, .account-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
