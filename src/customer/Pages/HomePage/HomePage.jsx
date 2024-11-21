@@ -235,7 +235,6 @@ const HomePage = () => {
         </ProductsGrid>
       </ProductsSection>
 
-   
     </div>
   );
 };

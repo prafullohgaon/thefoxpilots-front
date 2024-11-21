@@ -1,17 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { Menu as MenuIcon } from "@mui/icons-material";
-import { Button, Menu, MenuItem, Typography } from "@mui/material";
-import { navigation } from "./navigationData"; // Import navigation data
-import { useNavigate } from "react-router-dom"; // For routing
+import { Button, Menu, MenuItem, Typography, Avatar } from "@mui/material";
+import { deepPurple } from "@mui/material/colors";
+import { navigation } from "./navigationData";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser, logout } from "../../../State/Auth/Action";
+import AuthModal from "../../Auth/AuthModal";
 
 export default function Navigation() {
   const [logoText, setLogoText] = useState("fox PILOTS");
   const [menuAnchor, setMenuAnchor] = useState(null);
   const [submenuAnchor, setSubmenuAnchor] = useState(null);
   const [submenuItems, setSubmenuItems] = useState([]);
+  const [openAuthModal, setOpenAuthModal] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null); // For user menu dropdown
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { auth } = useSelector((store) => store);
+  const jwt = localStorage.getItem("jwt");
+
   const texts = ["fox PILOTS", "ಫಾಕ್ಸ್ ಪೈಲಟ್ಸ್"];
   let index = 0;
+
+  // Update authentication state
+  useEffect(() => {
+    if (jwt) {
+      dispatch(getUser(jwt));
+    }
+  }, [jwt]);
+
+  // Close modal when user logs in
+  useEffect(() => {
+    if (auth.user) {
+      setOpenAuthModal(false); // Close login modal on successful login
+    }
+  }, [auth.user]);
 
   // Change logo text every second
   useEffect(() => {
@@ -32,7 +56,7 @@ export default function Navigation() {
 
   const handleCategoryClick = (event, category) => {
     setSubmenuAnchor(event.currentTarget);
-    setSubmenuItems(category.sections); // Load submenu items
+    setSubmenuItems(category.sections);
   };
 
   const handleSubmenuClose = () => {
@@ -48,6 +72,23 @@ export default function Navigation() {
   const handleHomeClick = () => {
     navigate("/");
     handleMenuClose();
+  };
+
+  const handleUserMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleUserMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleOpenAuthModal = () => {
+    setOpenAuthModal(true);
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+    handleUserMenuClose();
   };
 
   return (
@@ -67,10 +108,7 @@ export default function Navigation() {
             open={Boolean(menuAnchor)}
             onClose={handleMenuClose}
           >
-            {/* Home Option */}
             <MenuItem onClick={handleHomeClick}>Home</MenuItem>
-
-            {/* Dynamic Categories */}
             {navigation.categories.map((category) => (
               <MenuItem
                 key={category.id}
@@ -99,7 +137,7 @@ export default function Navigation() {
                     key={item.id}
                     onClick={() =>
                       handleItemClick(
-                        submenuItems[0]?.id, // Pass category ID dynamically
+                        submenuItems[0]?.id,
                         section.id,
                         item.id
                       )
@@ -122,13 +160,40 @@ export default function Navigation() {
           {logoText}
         </Typography>
 
-        {/* Right: Static Buttons */}
+        {/* Right: Authentication & Static Buttons */}
         <div className="flex items-center space-x-4">
           <Button sx={{ textTransform: "none", color: "black" }}>Search</Button>
           <Button sx={{ textTransform: "none", color: "black" }}>Call Us</Button>
-          <Button sx={{ textTransform: "none", color: "black" }}>Account</Button>
+          {auth.user ? (
+            <>
+              <Avatar
+                sx={{ bgcolor: deepPurple[500], cursor: "pointer" }}
+                onClick={handleUserMenuOpen}
+              >
+                {auth.user.firstName[0].toUpperCase()}
+              </Avatar>
+              <Menu
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={handleUserMenuClose}
+              >
+                <MenuItem onClick={() => navigate("/account")}>
+                  Account
+                </MenuItem>
+                <MenuItem onClick={handleLogout}>Logout</MenuItem>
+              </Menu>
+            </>
+          ) : (
+            <Button
+              sx={{ textTransform: "none", color: "black" }}
+              onClick={handleOpenAuthModal}
+            >
+              Sign In
+            </Button>
+          )}
         </div>
       </nav>
+      <AuthModal open={openAuthModal} handleClose={() => setOpenAuthModal(false)} />
     </header>
   );
 }
