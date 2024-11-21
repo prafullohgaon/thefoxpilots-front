@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export const API_BASE_URL="https://prafullohgaon-api.vercel.app"
+export const API_BASE_URL="https://thefoxpilots-back.vercel.app/"
 
 const jwt = localStorage.getItem("jwt") || ""; // Make sure there's a fallback to an empty string if jwt is not found
 
