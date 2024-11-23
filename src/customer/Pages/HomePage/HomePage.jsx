@@ -43,7 +43,7 @@ const HeroContent = styled.div`
   z-index: 2;
   color: white;
   text-align: center;
-  top: 50%;
+  top: 70%;
   transform: translateY(-50%);
 `;
 
@@ -135,7 +135,6 @@ const HomePage = () => {
           Your browser does not support the video tag.
         </BackgroundVideo>
         <HeroContent>
-          <h1>Louis Vuitton Colourmania</h1>
           <HeroButton href="men/clothing/mens_kurta">Discover the Collection</HeroButton>
         </HeroContent>
       </HeroSection>
