@@ -20,7 +20,7 @@ export default function Navigation() {
   const { auth } = useSelector((store) => store);
   const jwt = localStorage.getItem("jwt");
 
-  const texts = ["fox PILOTS", "ಫಾಕ್ಸ್ ಪೈಲಟ್ಸ್"];
+  const texts = "fox PILOTS";
   let index = 0;
 
   // Update authentication state
@@ -38,13 +38,13 @@ export default function Navigation() {
   }, [auth.user]);
 
   // Change logo text every second
-  useEffect(() => {
-    const interval = setInterval(() => {
-      index = (index + 1) % texts.length;
-      setLogoText(texts[index]);
-    }, 1000);
-    return () => clearInterval(interval); // Cleanup interval on unmount
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     index = (index + 1) % texts.length;
+  //     setLogoText(texts[index]);
+  //   }, 1000);
+  //   return () => clearInterval(interval); // Cleanup interval on unmount
+  // }, []);
 
   const handleMenuClick = (event) => {
     setMenuAnchor(event.currentTarget);
@@ -162,7 +162,7 @@ export default function Navigation() {
 
         {/* Right: Authentication & Static Buttons */}
         <div className="flex items-center space-x-4">
-          <Button sx={{ textTransform: "none", color: "black" }}>Search</Button>
+{/*           <Button sx={{ textTransform: "none", color: "black" }}>Search</Button> */}
           <Button sx={{ textTransform: "none", color: "black" }}>Call Us</Button>
           {auth.user ? (
             <>
