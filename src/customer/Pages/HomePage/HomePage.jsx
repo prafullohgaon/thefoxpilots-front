@@ -1,4 +1,5 @@
 import React from "react";
+import './homepage.css'
 import styled from "styled-components";
 import videoFile from "./video.mp4";
 import img1 from "./homeimages/1.jpg"
@@ -12,13 +13,6 @@ import img8 from "./homeimages/15.jpg"
 import img9 from "./homeimages/16.jpg"
 import img10 from "./homeimages/2.jpg"
 
-// Styled Components
-const HeroSection = styled.section`
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-`;
 
 const Section = styled.div`
   max-width: 100%;
@@ -28,33 +22,7 @@ const Section = styled.div`
   gap: 28px;
 `;
 
-const BackgroundVideo = styled.video`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-`;
 
-const HeroContent = styled.div`
-  position: relative;
-  z-index: 2;
-  color: white;
-  text-align: center;
-  top: 70%;
-  transform: translateY(-50%);
-`;
-
-const HeroButton = styled.a`
-  padding: 10px 20px;
-  background-color: white;
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 5px;
-`;
 
 const ExploreSection = styled.section`
   text-align: center;
@@ -114,30 +82,29 @@ const ProductLink = styled.a`
   }
 `;
 
-const FullWidthImageSection = styled.section`
-  width: 100%;
-  text-align: center;
-  margin: 20px 0;
-`;
-
-const FullWidthImage = styled.img`
-  max-width: 100%;
-  height: auto;
-`;
-
 // Main Component
 const HomePage = () => {
   return (
     <div>
-      <HeroSection>
-        <BackgroundVideo autoPlay muted loop>
+      
+      <div className="hero-section">
+      <div className="video-wrapper">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          poster="./fallback-image.jpg" 
+          className="responsive-video"
+        >
           <source src={videoFile} type="video/mp4" />
           Your browser does not support the video tag.
-        </BackgroundVideo>
-        <HeroContent>
-          <HeroButton href="men/clothing/mens_kurta">Discover the Collection</HeroButton>
-        </HeroContent>
-      </HeroSection>
+        </video>
+        <button className="hero-button">Discover the Collection</button>
+      </div>
+    </div>
+
+  
+
 
       <ExploreSection>
         <h1 style={{fontWeight:"bolder", fontSize:"30px"}}>Explore the Fashion</h1>
