@@ -12,16 +12,16 @@ const Footer = () => {
       >
         <Grid item xs={12} sm={6} md={3}>
           <Typography className="pb-5" variant="h6">
-            Policies
+            FOXPILOTS
           </Typography>
           <div>
             <Button className="pb-5" variant="h6" gutterBottom>
-              Terms & Conditions
+              About Us
             </Button>
           </div>
           <div>
             <Button className="pb-5" variant="h6" gutterBottom>
-              Delivery & Shipping
+              Terms & Conditions
             </Button>
           </div>
           <div>
