@@ -83,9 +83,13 @@ export const navigation = {
             name: 'Clothing',
             items: [
               { name: 'Mens Kurtas', id: 'mens_kurta' },
-              { name: 'Shirt', id: 'shirt' },
-              { name: 'Men Jeans', id: 'men_jeans' },          
-              { name: 'T-Shirts', id: 't-shirt' },              
+              { name: 'Shirt', id: 'mens_kurta' },
+                { name: 'Pants', id: 'pants' },
+                { name: 'Jeans', id: 'jeans' },
+                { name: 'Oversized t shits', id: 't-shirt'},
+                { name: 'Denim jackets', id: 'jackets' },
+                { name: 'Leather jackets', id: 'leather-jackets' },
+                { name: 'Hoodies / sweatshirt', id: 'sweatshirt' },            
             ],
           },
           // {
