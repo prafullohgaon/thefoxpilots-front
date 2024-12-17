@@ -9,7 +9,7 @@ import { getUser, logout } from "../../../State/Auth/Action";
 import AuthModal from "../../Auth/AuthModal";
 
 export default function Navigation() {
-  const [logoText, setLogoText] = useState("fox PILOTS");
+  const [logoText, setLogoText] = useState("FOX PILOTS");
   const [menuAnchor, setMenuAnchor] = useState(null);
   const [submenuAnchor, setSubmenuAnchor] = useState(null);
   const [submenuItems, setSubmenuItems] = useState([]);
@@ -20,7 +20,7 @@ export default function Navigation() {
   const { auth } = useSelector((store) => store);
   const jwt = localStorage.getItem("jwt");
 
-  const texts = "fox PILOTS";
+  const texts = "FOX PILOTS";
   let index = 0;
 
   // Update authentication state
