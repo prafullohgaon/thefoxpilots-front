@@ -113,12 +113,15 @@ const CreateProductForm = () => {
               <FormControl fullWidth>
                 <InputLabel>Third Level Category</InputLabel>
                 <Select name="thirdLevelCategory" value={productData.thirdLevelCategory} onChange={handleChange} label="Third Level Category">
-                <MenuItem value="top">Tops</MenuItem>
-                  <MenuItem value="women_dress">Dresses</MenuItem>
-                  <MenuItem value="t-shirts">T-Shirts</MenuItem>
-                  <MenuItem value="saree">Saree</MenuItem>
-                  <MenuItem value="lengha_choli">Lengha Choli</MenuItem>
-                  <MenuItem value="mens_kurta">Mens Kurta</MenuItem>
+                
+                 <MenuItem value="mens_kurta">Mens Kurta</MenuItem>
+                <MenuItem value="shirt">Shirt</MenuItem>
+                <MenuItem value="pants">Pants</MenuItem>
+                  <MenuItem value="jeans">Jeans</MenuItem>
+                  <MenuItem value="o-t-shirts">Oversized T-Shirts</MenuItem>
+                  <MenuItem value="saree">Denim Jackets</MenuItem>   
+                  <MenuItem value="saree">Leather Jackets</MenuItem>   
+                  <MenuItem value="hoodies">Hoodies</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
