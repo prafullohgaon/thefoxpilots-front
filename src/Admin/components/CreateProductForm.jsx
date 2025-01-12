@@ -114,8 +114,8 @@ const CreateProductForm = () => {
                 <InputLabel>Third Level Category</InputLabel>
                 <Select name="thirdLevelCategory" value={productData.thirdLevelCategory} onChange={handleChange} label="Third Level Category">
                 
-                 <MenuItem value="mens_kurta">Mens Kurta</MenuItem>
-                <MenuItem value="shirt">Shirt</MenuItem>
+                 
+                <MenuItem value="top">Shirt</MenuItem>
                 <MenuItem value="pants">Pants</MenuItem>
                   <MenuItem value="jeans">Jeans</MenuItem>
                   <MenuItem value="o-t-shirts">Oversized T-Shirts</MenuItem>
