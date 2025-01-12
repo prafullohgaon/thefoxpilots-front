@@ -105,9 +105,6 @@ const Footer = () => {
             &copy; 2023 My Company. All Rights Reserved.
           </Typography>
           <Typography variant="body2" component="p" align="center">
-            Made By Prafull Lohgaon
-          </Typography>
-          <Typography variant="body2" component="p" align="center">
             Icons Made By{" "}
             <Link
               href="https://www.freepik.com"
