@@ -99,7 +99,7 @@ const HomePage = () => {
           <source src={videoFile} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <button className="hero-button">Discover the Collection</button>
+        
       </div>
     </div>
 
